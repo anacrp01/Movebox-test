@@ -434,708 +434,145 @@
     }
 
     .section-label {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
+      /* --- Cards des salles --- */
+.room-card {
+  background: var(--card);
+  border: 1px solid var(--accent-soft);
+  border-radius: 18px;
+  padding: 22px;
+  margin: 18px 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
 
-    .section-title {
-      font-size: 22px;
-      margin: 0 0 14px;
-    }
+.room-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
 
-    .section-subtitle {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 500px;
-    }
+.room-info {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--muted);
+}
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .card {
-      border-radius: var(--radius-md);
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 14px 14px 16px;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .card-header {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card-tag {
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    .card-body {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .card-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .card-list li {
-      margin-bottom: 4px;
-    }
-
-    .card-price {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .card-note {
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    /* Steps */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-      font-size: 13px;
-    }
-
-    .step-number {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      margin-bottom: 6px;
-      color: var(--muted);
-    }
-
-    .step-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .step-text {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    /* Form */
-    .form-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .form-card {
-      border-radius: var(--radius-lg);
-      background: rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      padding: 18px 16px 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    form {
-      display: grid;
-      gap: 12px;
-    }
-
-    label {
-      font-size: 12px;
-      color: var(--muted);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 9px 10px;
-      border-radius: 9px;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      background: #020617;
-      color: var(--text);
-      font-size: 13px;
-      outline: none;
-      transition: border-color 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #6b7280;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(249, 115, 22, 0.9);
-      box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.2);
-      background: #020617;
-    }
-
-    .helper-text {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .radio-row,
-    .checkbox-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .radio-pill,
-    .checkbox-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(51, 65, 85, 0.95);
-      cursor: pointer;
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .radio-pill input,
-    .checkbox-pill input {
-      accent-color: #f97316;
-    }
-
-    .submit-row {
-      margin-top: 8px;
-    }
-
-    .submit-row .helper-text {
-      margin-top: 6px;
-      max-width: 280px;
-    }
-
-    .info-card {
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.12), rgba(15, 23, 42, 0.98));
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      padding: 16px 15px;
-      font-size: 13px;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .info-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-      margin-bottom: 8px;
-    }
-
-    .info-chip {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(75, 85, 99, 0.95);
-      font-size: 11px;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.98);
-    }
-
-    footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(31, 41, 55, 0.95);
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: space-between;
-    }
-
-    footer a {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 3px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
-      .container {
-        padding: 16px 16px 48px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero {
-        padding-top: 8px;
-      }
-
-      .hero-subtitle {
-        max-width: none;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .steps {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .form-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+/* --- CTA bouton --- */
+.button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 25px;
+  text-align: center;
+  background: var(--accent);
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <div class="container">
-      <header>
-        <div class="logo-wrap">
-          <div class="logo-icon">M</div>
-          <div>
-            <div class="logo-text-top">Salles privatisées</div>
-            <div class="logo-text-main">MOVE BOX</div>
-          </div>
-        </div>
-        <div class="badge-beta">Tests d&apos;intérêt • Pré-ouverture</div>
-      </header>
 
-      <main>
-        <!-- HERO -->
-        <section class="hero" id="top">
-          <div>
-            <div class="hero-kicker">
-              <span class="hero-kicker-dot"></span>
-              Nouvelle expérience sport &amp; bien-être
-            </div>
-            <h1 class="hero-title">
-              La <span>salle de sport</span><br />comme une karaoke box.
-            </h1>
-            <p class="hero-subtitle">
-              Des salles de sport privatisées pour 1 à 8 personnes, avec température, musique et lumière ajustables.
-              Vous réservez votre créneau, comme pour une karaoke box… mais version sport &amp; bien-être.
-            </p>
-            <div class="hero-pills">
-              <div class="hero-pill">Hot Pilates 30–38°C</div>
-              <div class="hero-pill">Danse &amp; Cardio Fun</div>
-              <div class="hero-pill">Respiration &amp; Stretch</div>
-              <div class="hero-pill">Move Lounge (bar sportif sans alcool)</div>
-            </div>
-            <div class="hero-cta-row">
-              <a href="#form" class="btn-primary">
-                Je veux tester une Move Box
-                <span>→</span>
-              </a>
-              <a href="#how" class="btn-secondary">Comment &ccedil;a marche ?</a>
-            </div>
-            <div class="hero-meta">
-              <span><span class="hero-meta-dot"></span> Tests en pr&eacute;paration</span>
-              <span>Concept en cours de validation (aucun d&eacute;bit bancaire)</span>
-            </div>
-          </div>
+<div class="header">
+  <div class="tag">Tests d’intérêt • Pré-ouverture</div>
+  <h1 class="big-title">MOVE BOX</h1>
+  <p>Salles de sport privatisées ou en session ouverte</p>
+</div>
 
-          <aside class="hero-visual" aria-hidden="true">
-            <div class="hero-visual-inner">
-              <div class="hero-screen">
-                <div class="hero-screen-header">
-                  <div class="hero-screen-dots">
-                    <span class="hero-screen-dot"></span>
-                    <span class="hero-screen-dot"></span>
-                    <span class="hero-screen-dot"></span>
-                  </div>
-                  <div class="hero-screen-tag">Salle MOVE HOT</div>
-                </div>
-                <div class="hero-room">
-                  <div class="room-screen">
-                    <div class="room-screen-overlay"></div>
-                    <div class="room-screen-label">
-                      <h3>Hot Pilates</h3>
-                      <p>S&eacute;ance immersive &agrave; 34&ndash;38&deg;C, lumi&egrave;res ambr&eacute;es &amp; musique douce.</p>
-                    </div>
-                  </div>
-                  <div class="room-details">
-                    <div class="room-badges">
-                      <div class="room-badge">1 &agrave; 8 personnes</div>
-                      <div class="room-badge">Temp&eacute;rature r&eacute;glable</div>
-                    </div>
-                    <p>Salle privatis&eacute;e avec &eacute;cran g&eacute;ant, playlist au choix et ambiance LED. Vous arrivez au Move Lounge, vous vous installez, la salle s&apos;allume.</p>
-                  </div>
-                </div>
-              </div>
+<div class="section">
+  <h2>Nos Salles Thématiques</h2>
 
-              <div class="hero-visual-footer">
-                <div>
-                  <div class="chip-row">
-                    <div class="chip">MOVE DANCE · Danse / Cardio</div>
-                    <div class="chip">MOVE BREATH · Respiration &amp; Stretch</div>
-                  </div>
-                  <p style="margin-top:8px;">
-                    Chaque salle est privatis&eacute;e pour votre groupe : amis, famille, coll&egrave;gues&hellip; comme une karaoke box, mais pour bouger, transpirer ou se d&eacute;tendre.
-                  </p>
-                </div>
-                <div class="lounge-card">
-                  <div class="lounge-title">Move Lounge</div>
-                  <p style="margin:0 0 6px;">
-                    Un point de rassemblement chaleureux &agrave; l&apos;entr&eacute;e : boissons sans alcool, boissons sportives, caf&eacute;, eau aromatis&eacute;e.
-                  </p>
-                  <div class="lounge-pill-row">
-                    <div class="lounge-pill">Bar sans alcool</div>
-                    <div class="lounge-pill">Ambiance zen &amp; moderne</div>
-                    <div class="lounge-pill">Avant ou apr&egrave;s la s&eacute;ance</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <!-- ROOMS -->
-        <section id="rooms">
-          <div class="section-label">Salles en test</div>
-          <h2 class="section-title">3 Move Box pour d&eacute;marrer</h2>
-          <p class="section-subtitle">
-            Pour cette phase de test, nous imaginons trois types de salles privatis&eacute;es. L&apos;objectif : mesurer ce qui
-            vous attire le plus avant d&apos;investir dans un lieu complet.
-          </p>
-
-          <div class="grid-3">
-            <div class="card">
-              <div class="card-header">
-                MOVE HOT · Hot Pilates
-                <span class="card-tag">Immersif</span>
-              </div>
-              <div class="card-body">
-                Une s&eacute;ance de Hot Pilates dans une salle chauff&eacute;e (30&ndash;38&deg;C), lumi&egrave;res ambr&eacute;es, musique douce.
-              </div>
-              <ul class="card-list">
-                <li>&bull; 1 &agrave; 8 personnes</li>
-                <li>&bull; Temp&eacute;rature r&eacute;glable</li>
-                <li>&bull; &Eacute;cran g&eacute;ant avec cours guid&eacute;s</li>
-                <li>&bull; Lumi&egrave;res LED enveloppantes</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                MOVE DANCE · Danse &amp; Cardio
-                <span class="card-tag">Fun</span>
-              </div>
-              <div class="card-body">
-                Une salle pour danser, faire du cardio et transpirer sur vos sons pr&eacute;f&eacute;r&eacute;s, avec cours
-                vid&eacute;o ou playlist personnelle.
-              </div>
-              <ul class="card-list">
-                <li>&bull; En groupe, entre amis ou coll&egrave;gues</li>
-                <li>&bull; Ambiance club (sans alcool)</li>
-                <li>&bull; &Eacute;cran g&eacute;ant + son</li>
-                <li>&bull; Id&eacute;al EVJF, anniversaires, afterwork</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                MOVE BREATH · Respiration &amp; Stretch
-                <span class="card-tag">S&eacute;r&eacute;nit&eacute;</span>
-              </div>
-              <div class="card-body">
-                Un cocon calme pour respirer, &eacute;tendre, m&eacute;diter et rel&acirc;cher la pression en petit groupe.
-              </div>
-              <ul class="card-list">
-                <li>&bull; Lumi&egrave;re douce &amp; sons apaisants</li>
-                <li>&bull; Guidance audio / vid&eacute;o</li>
-                <li>&bull; Tapis &amp; accessoires de confort</li>
-                <li>&bull; Id&eacute;al pour se recentrer apr&egrave;s le travail</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- PRICING -->
-        <section id="pricing">
-          <div class="section-label">Tarifs de test</div>
-          <h2 class="section-title">Pour valider la demande, pas pour vous d&eacute;biter</h2>
-          <p class="section-subtitle">
-            Nous testons un mod&egrave;le &agrave; la s&eacute;ance, comme pour une karaoke box. Les montants ci-dessous servent &agrave;
-            mesurer si l&apos;offre vous semble attractive. Rien n&apos;est pr&eacute;lev&eacute; &agrave; ce stade.
-          </p>
-
-          <div class="grid-3">
-            <div class="card">
-              <div class="card-header">Tarif d&eacute;couverte &middot; &agrave; la personne</div>
-              <div class="card-price">14,90 &euro; / personne / s&eacute;ance</div>
-              <div class="card-body">
-                Vous r&eacute;servez une salle pour votre groupe, chacun paie sa place comme pour une sortie.
-              </div>
-              <div class="card-note">
-                Nous observons combien de personnes seraient pr&ecirc;tes &agrave; venir &agrave; ce tarif.
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">Remise groupe</div>
-              <div class="card-price">&Agrave; partir de 10,90 &euro; / personne</div>
-              <ul class="card-list">
-                <li>&bull; 12,90 &euro; / pers &agrave; partir de 4 personnes</li>
-                <li>&bull; 10,90 &euro; / pers &agrave; partir de 6 personnes</li>
-                <li>&bull; Prix optimis&eacute; pour les groupes d&apos;amis / coll&egrave;gues</li>
-              </ul>
-              <div class="card-note">
-                Objectif : rester accessible tout en rendant le projet viable.
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">Tarif salle compl&egrave;te</div>
-              <div class="card-price">69 &euro; la salle (jusqu&apos;&agrave; 8 pers)</div>
-              <div class="card-body">
-                Une seule r&eacute;servation pour tout le groupe, &agrave; partager entre vous.
-              </div>
-              <div class="card-note">
-                Id&eacute;al pour les &eacute;quipes, EVJF, clubs, collectivit&eacute;s&hellip;
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- HOW IT WORKS -->
-        <section id="how">
-          <div class="section-label">Exp&eacute;rience</div>
-          <h2 class="section-title">Comment se passe une s&eacute;ance MOVE BOX ?</h2>
-          <p class="section-subtitle">
-            L&apos;exp&eacute;rience est pens&eacute;e comme une sortie : on se retrouve, on boit quelque chose au Move Lounge,
-            puis on acc&egrave;de &agrave; sa salle privatis&eacute;e pour une heure.
-          </p>
-
-          <div class="steps">
-            <div>
-              <div class="step-number">1</div>
-              <div class="step-title">Vous choisissez votre Move Box</div>
-              <div class="step-text">
-                Hot Pilates, Danse/Cardio ou Respiration. Selon l&apos;envie du moment et la taille de votre groupe.
-              </div>
-            </div>
-            <div>
-              <div class="step-number">2</div>
-              <div class="step-title">Vous r&eacute;servez un cr&eacute;neau</div>
-              <div class="step-text">
-                Comme pour une karaoke box : jour, heure, nombre de personnes. Nous testons quels horaires sont les plus
-                demand&eacute;s.
-              </div>
-            </div>
-            <div>
-              <div class="step-number">3</div>
-              <div class="step-title">Vous arrivez au Move Lounge</div>
-              <div class="step-text">
-                Un petit bar sportif sans alcool pour se poser, boire un caf&eacute; ou une boisson avant/apr&egrave;s la s&eacute;ance.
-              </div>
-            </div>
-            <div>
-              <div class="step-number">4</div>
-              <div class="step-title">Votre salle s&apos;allume</div>
-              <div class="step-text">
-                L&apos;&eacute;cran lance le cours, la musique et la lumi&egrave;re que vous avez choisis. Vous &ecirc;tes entre vous, en
-                intimité, sans regard extérieur.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- FORM -->
-        <section id="form">
-          <div class="section-label">Tests d&apos;int&eacute;r&ecirc;t</div>
-          <h2 class="section-title">Seriez-vous pr&ecirc;t(e) &agrave; tester une Move Box ?</h2>
-          <p class="section-subtitle">
-            Ce formulaire nous permet de mesurer l&apos;int&eacute;r&ecirc;t r&eacute;el pour le concept. L&apos;objectif : d&eacute;cider, sur des
-            donn&eacute;es concr&egrave;tes, si nous devons ouvrir un lieu MOVE BOX.
-          </p>
-
-          <div class="form-grid">
-            <div class="form-card">
-              <form>
-                <div>
-                  <label for="name">Pr&eacute;nom (ou pr&eacute;nom + initiale)</label>
-                  <input type="text" id="name" name="name" placeholder="Ex. : Sarah L." required />
-                </div>
-
-                <div>
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" placeholder="Pour vous recontacter si les tests ouvrent" required />
-                  <div class="helper-text">
-                    Nous ne partageons pas votre email. Il sert uniquement &agrave; vous pr&eacute;venir en cas d&apos;ouverture des tests.
-                  </div>
-                </div>
-
-                <div>
-                  <label for="room">Quelle Move Box vous attire le plus ?</label>
-                  <select id="room" name="room" required>
-                    <option value="">Choisissez une option</option>
-                    <option value="hot">MOVE HOT · Hot Pilates</option>
-                    <option value="dance">MOVE DANCE · Danse / Cardio</option>
-                    <option value="breath">MOVE BREATH · Respiration / Stretch</option>
-                    <option value="all">J&apos;ai envie de tester les trois</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label>Combien de personnes seriez-vous ?</label>
-                  <div class="radio-row">
-                    <label class="radio-pill">
-                      <input type="radio" name="group_size" value="1" required />
-                      Solo
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="group_size" value="2-3" />
-                      2&ndash;3 personnes
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="group_size" value="4-5" />
-                      4&ndash;5 personnes
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="group_size" value="6-8" />
-                      6&ndash;8 personnes
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <label>Quel format vous attire le plus ?</label>
-                  <div class="radio-row">
-                    <label class="radio-pill">
-                      <input type="radio" name="pricing_pref" value="single" required />
-                      S&eacute;ance &agrave; la carte
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="pricing_pref" value="pack" />
-                      Carte de 10 s&eacute;ances
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="pricing_pref" value="subscription" />
-                      Petit abonnement
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="pricing_pref" value="dont_know" />
-                      Je ne sais pas encore
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <label>Ce qui vous donne envie de venir</label>
-                  <div class="checkbox-row">
-                    <label class="checkbox-pill">
-                      <input type="checkbox" name="reason" value="privacy" />
-                      L&apos;intimit&eacute; / pas de regard des autres
-                    </label>
-                    <label class="checkbox-pill">
-                      <input type="checkbox" name="reason" value="group" />
-                      Faire une activit&eacute; avec des proches
-                    </label>
-                    <label class="checkbox-pill">
-                      <input type="checkbox" name="reason" value="concept" />
-                      Le concept original (karaoke box version sport)
-                    </label>
-                    <label class="checkbox-pill">
-                      <input type="checkbox" name="reason" value="hot" />
-                      Le Hot Pilates / la chaleur
-                    </label>
-                    <label class="checkbox-pill">
-                      <input type="checkbox" name="reason" value="lounge" />
-                      Le Move Lounge (bar sans alcool)
-                    </label>
-                  </div>
-                </div>
-
-                <div>
-                  <label for="comment">Un mot en plus ?</label>
-                  <textarea id="comment" name="comment" rows="3" placeholder="Une id&eacute;e, une attente, une question…"></textarea>
-                </div>
-
-                <div class="submit-row">
-                  <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
-                    Je serais int&eacute;ress&eacute;(e) pour tester
-                  </button>
-                  <div class="helper-text">
-                    Ce bouton sert &agrave; mesurer l&apos;int&eacute;r&ecirc;t. Sur la version finale, il pourra &ecirc;tre reli&eacute; &agrave; un
-                    formulaire (Tally, Typeform, etc.) pour r&eacute;cup&eacute;rer les r&eacute;ponses.
-                  </div>
-                </div>
-              </form>
-            </div>
-
-            <aside class="info-card">
-              <div class="section-label" style="margin-bottom:4px;">Pourquoi ce formulaire ?</div>
-              <p style="margin-top:0;">
-                MOVE BOX est pour l&apos;instant un concept. Avant d&apos;investir dans un lieu, du mat&eacute;riel et des travaux,
-                l&apos;id&eacute;e est de s&apos;appuyer sur des donn&eacute;es r&eacute;elles : combien de personnes seraient pr&ecirc;tes &agrave; venir, pour
-                quel type de salle et &agrave; quel format de tarif.
-              </p>
-              <div class="info-chip-row">
-                <div class="info-chip">Aucun engagement</div>
-                <div class="info-chip">Pas de d&eacute;bit bancaire</div>
-                <div class="info-chip">Donn&eacute;es utilis&eacute;es uniquement pour l&apos;&eacute;tude</div>
-              </div>
-              <p style="margin-bottom:0;">
-                Si les r&eacute;sultats sont bons, une phase de test pourra voir le jour avec une seule salle pilote, puis
-                davantage ensuite.
-              </p>
-            </aside>
-          </div>
-        </section>
-      </main>
-
-      <footer>
-        <div>&copy; MOVE BOX &mdash; Concept de salles de sport privatis&eacute;es.</div>
-        <div>Prototype de landing page pour tests d&apos;int&eacute;r&ecirc;t (version pr&eacute;liminaire).</div>
-      </footer>
+  <div class="room-card">
+    <div class="room-title">🔥 Hot Pilates</div>
+    <div class="room-info">
+      • Température 34–38°C<br>
+      • Tapis, haltères légers, lumières immersives<br>
+      • Musique au choix + cours vidéo
     </div>
   </div>
+
+  <div class="room-card">
+    <div class="room-title">💃 Danse Cardio</div>
+    <div class="room-info">
+      • Ambiance dynamique, lumières colorées<br>
+      • Playlist personnalisée<br>
+      • Vidéo coach cardio/danse
+    </div>
+  </div>
+
+  <div class="room-card">
+    <div class="room-title">🏋️ Renfo / Poids du corps</div>
+    <div class="room-info">
+      • Tapis, step, haltères légers<br>
+      • Ambiance LED + musique<br>
+      • Séances vidéo renforcement total
+    </div>
+  </div>
+
+  <div class="room-card">
+    <div class="room-title">🧘 Yoga & Relaxation</div>
+    <div class="room-info">
+      • Lumières douces<br>
+      • Tapis + accessoires<br>
+      • Vidéos zen, méditation, stretching
+    </div>
+  </div>
+
+  <div class="room-card">
+    <div class="room-title">🥊 Boxing Room</div>
+    <div class="room-info">
+      • Sacs de frappe<br>
+      • Coaching vidéo spécial boxe<br>
+      • Musique + ambiance dynamique
+    </div>
+  </div>
+
+  <div class="room-card">
+    <div class="room-title">✨ Pole Dance Room</div>
+    <div class="room-info">
+      • Barres de pole fixes<br>
+      • Lumières LED<br>
+      • Chorégraphies vidéo ou libre
+    </div>
+  </div>
+   <p style="margin-top:24px; font-size:15px; color: var(--muted);">
+    Chaque salle est prévue pour 1 à 8 personnes, avec un écran géant qui diffuse le cours choisi.
+    Le client ne voit que des salles thématiques claires, pas le côté “modulable”.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Comment ça marche ?</h2>
+  <p style="font-size:15px; color: var(--muted);">
+    • Vous choisissez votre salle (Hot Pilates, Danse, Renfo, Yoga, Boxe ou Pole dance).<br>
+    • Vous réservez un créneau de 1h.<br>
+    • Au moment de la réservation, vous choisissez :
+  </p>
+  <p style="font-size:15px; color: var(--muted); margin-left:12px;">
+    – soit <strong>une séance privatisée</strong> juste pour vous / votre groupe,<br>
+    – soit une <strong>session ouverte</strong> que d’autres personnes peuvent rejoindre, pour un prix plus accessible.
+  </p>
+
+  <p style="font-size:15px; color: var(--muted); margin-top:16px;">
+    À l’entrée, le <strong>Move Lounge</strong> : un espace chaleureux avec boissons sans alcool,
+    boissons sport, café… pour se poser avant ou après la séance.
+  </p>
+
+  <a class="button" href="https://tally.so/r/D4BK9E" target="_blank">
+    Remplir le test d’intérêt MOVE BOX
+  </a>
+
+  <p style="font-size:13px; color: var(--muted); margin-top:10px; text-align:center;">
+    Aucune inscription définitive, aucun paiement.<br>
+    Vos réponses servent uniquement à savoir si le concept vaut le coup d’être lancé.
+  </p>
+</div>
+
+<footer style="text-align:center; padding:20px; font-size:12px; color:var(--muted);">
+  MOVE BOX — Concept de salles de sport privatisées. Version test.
+</footer>
+
 </body>
 </html>
