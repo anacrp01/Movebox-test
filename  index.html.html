@@ -1,0 +1,1043 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOVE BOX – Salles de sport privatisées</title>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0d1020;
+      --accent: #ff7b3a;
+      --accent-soft: rgba(255, 123, 58, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --card: #0b0f1a;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --shadow-subtle: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(249, 115, 22, 0.12), transparent 55%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 20px 20px 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0 20px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #fde68a, #f97316);
+      box-shadow: 0 0 24px rgba(249, 115, 22, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .logo-text-top {
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .logo-text-main {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-beta {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      padding: 18px 0 32px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 42px);
+      line-height: 1.1;
+      margin: 0 0 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #f97316, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle-2 {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #e5e7eb;
+      max-width: 430px;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle-3 {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #e5e7eb;
+      max-width: 430px;
+      margin-bottom: 18px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .hero-pill {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: radial-gradient(circle at 0 0, #fed7aa, #f97316);
+      color: #111827;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 14px 35px rgba(249, 115, 22, 0.6);
+      text-decoration: none;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+      box-shadow: 0 18px 40px rgba(249, 115, 22, 0.8);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 13px;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.14s ease, background 0.14s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(249, 115, 22, 0.7);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-visual {
+      border-radius: 28px;
+      background: radial-gradient(circle at 10% 0, rgba(56, 189, 248, 0.4), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.4), transparent 50%),
+                  #020617;
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-visual-inner {
+      border-radius: 20px;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 1));
+      padding: 16px;
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .hero-screen {
+      border-radius: 16px;
+      background: radial-gradient(circle at 50% 0, #111827, #020617);
+      padding: 12px 14px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-screen-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .hero-screen-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.6);
+    }
+
+    .hero-screen-tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-room {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.95fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .room-screen {
+      border-radius: 14px;
+      background: radial-gradient(circle at 50% 0, #f97316, #7c2d12);
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .room-screen-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+    }
+
+    .room-screen-label {
+      position: relative;
+      z-index: 1;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .room-screen-label h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .room-screen-label p {
+      margin: 0;
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .room-details {
+      font-size: 12px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+    }
+
+    .room-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .room-badge {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-visual-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 12px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .lounge-card {
+      border-radius: 14px;
+      background: radial-gradient(circle at 0 0, rgba(96, 165, 250, 0.16), rgba(15, 23, 42, 0.96));
+      padding: 10px 11px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .lounge-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .lounge-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 10px;
+    }
+
+    .lounge-pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    /* Sections */
+    section {
+      margin-top: 40px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin: 0 0 14px;
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .card-header {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .card-list li {
+      margin-bottom: 4px;
+    }
+
+    .card-price {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .card-note {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Steps */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+      font-size: 13px;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Form */
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .form-card {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 18px 16px 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .info-card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at 0 0, rgba(249, 115, 22, 0.12), rgba(15, 23, 42, 0.98));
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      padding: 16px 15px;
+      font-size: 13px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .info-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      margin-bottom: 8px;
+    }
+
+    .info-chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      font-size: 11px;
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .helper-text {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        padding: 16px 16px 48px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 8px;
+      }
+
+      .hero-subtitle {
+        max-width: none;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <header>
+        <div class="logo-wrap">
+          <div class="logo-icon">M</div>
+          <div>
+            <div class="logo-text-top">Salles privatisées</div>
+            <div class="logo-text-main">MOVE BOX</div>
+          </div>
+        </div>
+        <div class="badge-beta">Tests d&apos;intérêt • Pré-ouverture</div>
+      </header>
+
+      <main>
+        <!-- HERO -->
+        <section class="hero" id="top">
+          <div>
+            <div class="hero-kicker">
+              <span class="hero-kicker-dot"></span>
+              Nouvelle expérience sport &amp; bien-être
+            </div>
+            <h1 class="hero-title">
+              La <span>salle de sport</span><br />comme une karaoke box.
+            </h1>
+            <p class="hero-subtitle">
+              Des salles de sport privatisées pour 1 à 8 personnes, avec température, musique et lumière ajustables.
+              Vous réservez votre créneau, comme pour une karaoke box… mais version sport &amp; bien-être.
+            </p>
+            <p class="hero-subtitle-2">
+              Chaque salle est équipée d’un écran géant qui diffuse les cours : Hot Pilates, Danse cardio, Poids du corps, Yoga / respiration, Boxe, Pole dance.
+            </p>
+            <p class="hero-subtitle-3">
+              Vous pouvez venir seul(e) ou en groupe : au moment de la réservation, vous choisissez une séance entièrement privatisée ou une session ouverte à d’autres personnes sur le même créneau.
+            </p>
+            <div class="hero-pills">
+              <div class="hero-pill">Hot Pilates &amp; poids libres</div>
+              <div class="hero-pill">Danse cardio &amp; fun</div>
+              <div class="hero-pill">Poids du corps &amp; renfo</div>
+              <div class="hero-pill">Yoga / respiration</div>
+              <div class="hero-pill">Boxe &amp; sacs de frappe</div>
+              <div class="hero-pill">Pole dance</div>
+              <div class="hero-pill">Move Lounge (bar sportif sans alcool)</div>
+            </div>
+            <div class="hero-cta-row">
+              <a href="https://tally.so/r/D4BK9E" target="_blank" class="btn-primary">
+                Je veux tester une Move Box
+                <span>→</span>
+              </a>
+              <a href="#how" class="btn-secondary">Comment &ccedil;a marche ?</a>
+            </div>
+            <div class="hero-meta">
+              <span><span class="hero-meta-dot"></span> Tests en pr&eacute;paration</span>
+              <span>Concept en cours de validation (aucun d&eacute;bit bancaire)</span>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-hidden="true">
+            <div class="hero-visual-inner">
+              <div class="hero-screen">
+                <div class="hero-screen-header">
+                  <div class="hero-screen-dots">
+                    <span class="hero-screen-dot"></span>
+                    <span class="hero-screen-dot"></span>
+                    <span class="hero-screen-dot"></span>
+                  </div>
+                  <div class="hero-screen-tag">MOVE HOT · Hot Pilates</div>
+                </div>
+                <div class="hero-room">
+                  <div class="room-screen">
+                    <div class="room-screen-overlay"></div>
+                    <div class="room-screen-label">
+                      <h3>Hot Pilates</h3>
+                      <p>S&eacute;ance &agrave; 30&ndash;38&deg;C, lumi&egrave;re ambr&eacute;e, tapis &amp; poids, cours vid&eacute;o.</p>
+                    </div>
+                  </div>
+                  <div class="room-details">
+                    <div class="room-badges">
+                      <div class="room-badge">1 &agrave; 8 personnes</div>
+                      <div class="room-badge">Temp&eacute;rature r&eacute;glable</div>
+                    </div>
+                    <p>
+                      Vous choisissez la musique, l&apos;ambiance lumi&egrave;re et le cours projet&eacute; sur &eacute;cran g&eacute;ant. L&apos;id&eacute;al pour transpirer sans regard ext&eacute;rieur.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-visual-footer">
+                <div>
+                  <div class="chip-row">
+                    <div class="chip">MOVE DANCE · Danse / Cardio</div>
+                    <div class="chip">MOVE ZEN · Yoga &amp; respiration</div>
+                  </div>
+                  <p style="margin-top:8px;">
+                    Chaque Move Box est pens&eacute;e comme une petite sc&egrave;ne privatis&eacute;e pour votre groupe, ou une session ouverte si vous
+                    pr&eacute;f&eacute;rez partager le cr&eacute;neau avec d&apos;autres.
+                  </p>
+                </div>
+                <div class="lounge-card">
+                  <div class="lounge-title">Move Lounge</div>
+                  <p style="margin:0 0 6px;">
+                    Un point de rassemblement chaleureux &agrave; l&apos;entr&eacute;e : boissons sans alcool, boissons sportives, caf&eacute;, eau aromatis&eacute;e.
+                  </p>
+                  <div class="lounge-pill-row">
+                    <div class="lounge-pill">Bar sans alcool</div>
+                    <div class="lounge-pill">Ambiance zen &amp; moderne</div>
+                    <div class="lounge-pill">Avant ou apr&egrave;s la s&eacute;ance</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- ROOMS -->
+        <section id="rooms">
+          <div class="section-label">Les Move Box</div>
+          <h2 class="section-title">6 ambiances, 6 fa&ccedil;ons de bouger</h2>
+          <p class="section-subtitle">
+            Pour le client, c&apos;est simple : il choisit l&apos;exp&eacute;rience qui lui parle le plus. Chaque Move Box a son ambiance, son type de cours &agrave; l&apos;&eacute;cran et sa mani&egrave;re de faire bouger le corps.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">
+                MOVE HOT · Hot Pilates
+                <span class="card-tag">Chaleur &amp; intensit&eacute;</span>
+              </div>
+              <div class="card-body">
+                Une salle chauff&eacute;e pour travailler en profondeur : tapis, petits poids, lumi&egrave;re chaude et cours guid&eacute; sur &eacute;cran.
+              </div>
+              <ul class="card-list">
+                <li>&bull; 30&ndash;38&deg;C selon la s&eacute;ance</li>
+                <li>&bull; Tapis &amp; poids fournis</li>
+                <li>&bull; Cours vid&eacute;o Hot Pilates</li>
+                <li>&bull; Musique au choix</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                MOVE DANCE · Danse cardio
+                <span class="card-tag">Fun</span>
+              </div>
+              <div class="card-body">
+                Une salle pour danser, faire monter le cardio et suivre des chor&eacute;s simples ou plus intenses sur &eacute;cran g&eacute;ant.
+              </div>
+              <ul class="card-list">
+                <li>&bull; Musique forte mais confortable</li>
+                <li>&bull; Lumi&egrave;re dynamique</li>
+                <li>&bull; Chor&eacute;s guid&eacute;es en vid&eacute;o</li>
+                <li>&bull; Id&eacute;al entre amis, coll&egrave;gues, EVJF</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                MOVE STRONG · Poids du corps
+                <span class="card-tag">Renfo</span>
+              </div>
+              <div class="card-body">
+                Une salle pour travailler tout le corps sans machines : circuits, renfo, gainage guid&eacute;s &agrave; l&apos;&eacute;cran.
+              </div>
+              <ul class="card-list">
+                <li>&bull; Tapis fournis</li>
+                <li>&bull; Cours vid&eacute;o renfo / HIIT doux</li>
+                <li>&bull; Musique motivante</li>
+                <li>&bull; Niveaux modifiable selon les vid&eacute;os</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                MOVE ZEN · Yoga &amp; respiration
+                <span class="card-tag">S&eacute;r&eacute;nit&eacute;</span>
+              </div>
+              <div class="card-body">
+                Un cocon calme pour le yoga, la respiration, les &eacute;tirements et la d&eacute;tente guid&eacute;e.
+              </div>
+              <ul class="card-list">
+                <li>&bull; Lumi&egrave;re douce &amp; sons apaisants</li>
+                <li>&bull; Vid&eacute;os de yoga / stretch</li>
+                <li>&bull; Tapis &amp; coussins</li>
+                <li>&bull; Id&eacute;al pour rel&acirc;cher la journ&eacute;e</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                MOVE FIGHT · Boxe &amp; sacs de frappe
+                <span class="card-tag">D&eacute;foulement</span>
+              </div>
+              <div class="card-body">
+                Une salle avec sacs de frappe pour se d&eacute;fouler sur des s&eacute;ances boxe / cardio guid&eacute;es &agrave; l&apos;&eacute;cran.
+              </div>
+              <ul class="card-list">
+                <li>&bull; Sacs de frappe install&eacute;s</li>
+                <li>&bull; Gants fournis</li>
+                <li>&bull; Vid&eacute;os boxe &amp; cardio</li>
+                <li>&bull; Ambiance &eacute;nergie &amp; puissance</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                MOVE POLE · Pole dance
+                <span class="card-tag">Technique &amp; confiance</span>
+              </div>
+              <div class="card-body">
+                Une salle &eacute;quip&eacute;e de barres de pole dance, avec cours &agrave; l&apos;&eacute;cran ou pratique plus libre entre amies.
+              </div>
+              <ul class="card-list">
+                <li>&bull; Barres install&eacute;es</li>
+                <li>&bull; Vid&eacute;os pas &agrave; pas</li>
+                <li>&bull; Ambiance s&eacute;curis&eacute;e &amp; bienveillante</li>
+                <li>&bull; Id&eacute;al pour se challenger en douceur</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- PRICING -->
+        <section id="pricing">
+          <div class="section-label">Tarifs de test</div>
+          <h2 class="section-title">Pour valider la demande, pas pour vous d&eacute;biter</h2>
+          <p class="section-subtitle">
+            Nous testons un mod&egrave;le &agrave; la s&eacute;ance, comme pour une karaoke box. Les montants ci-dessous servent &agrave;
+            mesurer si l&apos;offre vous semble attractive. Rien n&apos;est pr&eacute;lev&eacute; &agrave; ce stade.
+          </p>
+
+          <div class="grid-3">
+            <div class="card">
+              <div class="card-header">Tarif d&eacute;couverte &middot; &agrave; la personne</div>
+              <div class="card-price">14,90 &euro; / personne / s&eacute;ance</div>
+              <div class="card-body">
+                Vous r&eacute;servez une salle pour votre groupe, chacun paie sa place comme pour une sortie. Valable en mode
+                privatis&eacute; ou en session ouverte.
+              </div>
+              <div class="card-note">
+                Nous observons combien de personnes seraient pr&ecirc;tes &agrave; venir &agrave; ce tarif.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">Remise groupe</div>
+              <div class="card-price">&Agrave; partir de 10,90 &euro; / personne</div>
+              <ul class="card-list">
+                <li>&bull; 12,90 &euro; / pers &agrave; partir de 4 personnes</li>
+                <li>&bull; 10,90 &euro; / pers &agrave; partir de 6 personnes</li>
+                <li>&bull; Prix optimis&eacute; pour les groupes d&apos;amis / coll&egrave;gues</li>
+              </ul>
+              <div class="card-note">
+                Objectif : rester accessible tout en rendant le projet viable.
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">Tarif salle compl&egrave;te</div>
+              <div class="card-price">69 &euro; la salle (jusqu&apos;&agrave; 8 pers)</div>
+              <div class="card-body">
+                Une seule r&eacute;servation pour tout le groupe, &agrave; partager entre vous, pour une privatisation totale.
+              </div>
+              <div class="card-note">
+                Id&eacute;al pour les &eacute;quipes, EVJF, clubs, collectivit&eacute;s&hellip;
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how">
+          <div class="section-label">Exp&eacute;rience</div>
+          <h2 class="section-title">Comment se passe une s&eacute;ance MOVE BOX ?</h2>
+          <p class="section-subtitle">
+            L&apos;exp&eacute;rience est pens&eacute;e comme une sortie : on se retrouve, on boit quelque chose au Move Lounge,
+            puis on acc&egrave;de &agrave; sa salle de sport privatis&eacute;e ou &agrave; une session ouverte, selon le mode choisi &agrave; la r&eacute;servation.
+          </p>
+
+          <div class="steps">
+            <div>
+              <div class="step-number">1</div>
+              <div class="step-title">Vous choisissez votre Move Box</div>
+              <div class="step-text">
+                Hot Pilates, Danse cardio, Poids du corps, Yoga, Boxe ou Pole dance. Vous choisissez l&apos;ambiance qui vous donne envie.
+              </div>
+            </div>
+            <div>
+              <div class="step-number">2</div>
+              <div class="step-title">Privatis&eacute; ou session ouverte</div>
+              <div class="step-text">
+                Au moment de la r&eacute;servation, vous choisissez si la salle est rien que pour vous (mode privatis&eacute;) ou si vous
+                acceptez que d&apos;autres personnes rejoignent le m&ecirc;me cr&eacute;neau (session ouverte, plus accessible).
+              </div>
+            </div>
+            <div>
+              <div class="step-number">3</div>
+              <div class="step-title">Vous arrivez au Move Lounge</div>
+              <div class="step-text">
+                Un petit bar sportif sans alcool pour se poser, boire un caf&eacute; ou une boisson avant/apr&egrave;s la s&eacute;ance, seul(e) ou avec vos proches.
+              </div>
+            </div>
+            <div>
+              <div class="step-number">4</div>
+              <div class="step-title">Votre salle s&apos;allume</div>
+              <div class="step-text">
+                L&apos;&eacute;cran lance le cours, la musique et la lumi&egrave;re que vous avez choisis. Vous &ecirc;tes entre vous en mode
+                privatis&eacute;, ou avec d&apos;autres personnes dans une ambiance s&eacute;curis&eacute;e et bienveillante.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FORM (EXPLICATION) -->
+        <section id="form">
+          <div class="section-label">Tests d&apos;int&eacute;r&ecirc;t</div>
+          <h2 class="section-title">Formulaire &ldquo;Test d&apos;int&eacute;r&ecirc;t MOVE BOX&rdquo;</h2>
+          <p class="section-subtitle">
+            Le bouton ci-dessous ouvre un formulaire externe (Tally) pour recueillir vos r&eacute;ponses. C&apos;est l&agrave; que nous
+            analysons l&apos;int&eacute;r&ecirc;t r&eacute;el pour le concept : types de s&eacute;ances, taille des groupes, mode privatis&eacute; ou ouvert, format tarifaire pr&eacute;f&eacute;r&eacute;.
+          </p>
+
+          <div class="form-grid">
+            <div class="form-card" style="display:flex;flex-direction:column;gap:12px;align-items:flex-start;">
+              <p style="margin:0;font-size:14px;color:var(--muted);">
+                En cliquant sur le bouton ci-dessous, vous serez redirig&eacute;(e) vers le formulaire officiel :
+                <strong>&laquo; Test d&apos;int&eacute;r&ecirc;t MOVE BOX &raquo;</strong>.
+              </p>
+              <a href="https://tally.so/r/D4BK9E" target="_blank" class="btn-primary" style="margin-top:4px;">
+                Ouvrir le formulaire Test d&apos;int&eacute;r&ecirc;t MOVE BOX
+              </a>
+              <p class="helper-text">
+                Aucun paiement, aucun engagement. Vos r&eacute;ponses servent uniquement &agrave; d&eacute;cider si le projet doit passer
+                en phase de tests r&eacute;els avec une salle pilote, puis &eacute;ventuellement plus de Move Box.
+              </p>
+            </div>
+
+            <aside class="info-card">
+              <div class="section-label" style="margin-bottom:4px;">Pourquoi ce formulaire ?</div>
+              <p style="margin-top:0;">
+                MOVE BOX est pour l&apos;instant un concept. Avant d&apos;investir dans un lieu, du mat&eacute;riel et des travaux,
+                l&apos;id&eacute;e est de s&apos;appuyer sur des donn&eacute;es r&eacute;elles : combien de personnes seraient pr&ecirc;tes &agrave; venir, pour
+                quels types de s&eacute;ances, en solo ou en groupe, et &agrave; quel niveau de prix.
+              </p>
+              <div class="info-chip-row">
+                <div class="info-chip">Aucun engagement</div>
+                <div class="info-chip">Pas de d&eacute;bit bancaire</div>
+                <div class="info-chip">Donn&eacute;es utilis&eacute;es uniquement pour l&apos;&eacute;tude</div>
+              </div>
+              <p style="margin-bottom:0;">
+                Si les r&eacute;sultats sont bons, une phase de test pourra voir le jour avec plusieurs Move Box adapt&eacute;es &agrave; votre fa&ccedil;on
+                de bouger (Hot, renfo, danse, yoga, boxe, pole dance&hellip;).
+              </p>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>&copy; MOVE BOX &mdash; Concept de salles de sport privatis&eacute;es.</div>
+        <div>Prototype de landing page pour tests d&apos;int&eacute;r&ecirc;t (version pr&eacute;liminaire v4).</div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
